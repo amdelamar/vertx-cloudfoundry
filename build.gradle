@@ -1,0 +1,59 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "com.github.jengelman.gradle.plugins:shadow:2.0.1"
+  }
+}
+
+apply plugin: "com.github.johnrengelman.shadow"
+
+group = 'com.amdelamar'
+version = '0.1.0'
+jar.baseName = 'vertx-cf'
+jar.enabled = false
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.vertx:vertx-core:3.5.+'
+    compile 'io.vertx:vertx-web:3.5.+'
+    compile 'io.vertx:vertx-web-templ-freemarker:3.5.+'
+   
+    compile 'org.slf4j:slf4j-api:1.7.+'
+    compile 'org.slf4j:slf4j-simple:1.7.+'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'io.vertx:vertx-unit:3.5.+'
+}
+
+mainClassName = 'hello.MainVerticle'
+def mainVerticleName = 'hello.MainVerticle'
+def watchForChange = 'src/**/*'
+def doOnChange = './gradlew classes'
+if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+    doOnChange = '.\\gradlew classes'
+}
+
+// Vertx redeploy
+run {
+    args = ['run', mainVerticleName, "--redeploy=$watchForChange", "--launcher-class=$mainClassName", "--on-redeploy=$doOnChange"]
+}
+
+shadowJar {
+    classifier = null
+    manifest {
+        attributes "Main-Verticle": mainVerticleName
+    }
+}
