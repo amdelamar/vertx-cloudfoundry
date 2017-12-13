@@ -36,7 +36,7 @@ public class HelloHandlerTest {
         Async async = test.async();
 
         vertx.createHttpClient()
-                .getNow(MainVerticle.HTTPPORT, "localhost", "/hello", response -> {
+                .getNow(MainVerticle.PORT, "localhost", "/", response -> {
                     test.assertEquals(response.statusCode(), 200);
                     response.bodyHandler(body -> {
                         test.assertTrue(body.length() > 0);

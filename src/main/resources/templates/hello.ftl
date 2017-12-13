@@ -12,8 +12,5 @@
 
 	<img src="img/logo.png" alt="Logo" style="max-width:100%;max-height:100%;" />
 	<h1>${context.greeting!"null"}</h1>
-	<code>v3.5.0</code>
-	<br>
-	<small>(This is /templates/hello.ftl)</small>
 </body>
 </html>

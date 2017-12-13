@@ -1,11 +1,7 @@
 applications:
-- path: ./build/libs/vertx-cf-0.1.0.jar
+- path: ./build/libs/vertx-cf-0.1.0-all.jar
   memory: 768M
   instances: 1
-  name: vertx-cf
-  host: vertx-cf
-  disk_quota: 512M
+  name: my-vertx-app
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
-  env:
-    VERTX_VERSION: 3.5.0
     

@@ -13,7 +13,7 @@ A simple Java webapp using [Eclipse Vert.x](http://vertx.io) on [Cloud Foundry](
 1. Download code `git clone https://github.com/amdelamar/vertx-cf`
 1. `cd vertx-cf`
 1. Run build `./gradlew clean build`
-1. Test app `java -jar build/libs/vertx-cf-0.1.0.jar`
+1. Test app `java -jar build/libs/vertx-cf-0.1.0-all.jar`
 1. Visit [http://localhost:8080/](http://localhost:8080/) to see the app running.
 
 ## Deploy to Cloud Foundry
