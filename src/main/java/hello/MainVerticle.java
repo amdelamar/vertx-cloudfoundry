@@ -46,19 +46,10 @@ public class MainVerticle extends AbstractVerticle {
         // Create HTTP server
         HttpServer httpServer = getVertx().createHttpServer();
 
-        // Map Routes
+        // Set Router
         Router mainRouter = Router.router(getVertx());
-
-        // Webroot static resources
         mainRouter.route("/*")
                 .handler(StaticHandler.create());
-
-        // Template for root
-        mainRouter.get()
-                .path("/")
-                .handler(new HelloHandler());
-
-        // Set Router
         httpServer.requestHandler(mainRouter::accept);
 
         // Start listening
