@@ -13,7 +13,7 @@ import io.vertx.ext.unit.junit.RunTestOnContext;
 import io.vertx.ext.unit.junit.VertxUnitRunner;
 
 @RunWith(VertxUnitRunner.class)
-public class HelloHandlerTest {
+public class IndexTest {
 
     @Rule
     public RunTestOnContext rule = new RunTestOnContext();
