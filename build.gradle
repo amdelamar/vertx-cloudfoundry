@@ -40,16 +40,6 @@ dependencies {
 
 mainClassName = 'hello.MainVerticle'
 def mainVerticleName = 'hello.MainVerticle'
-def watchForChange = 'src/**/*'
-def doOnChange = './gradlew classes'
-if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-    doOnChange = '.\\gradlew classes'
-}
-
-// Vertx redeploy
-run {
-    args = ['run', mainVerticleName, "--redeploy=$watchForChange", "--launcher-class=$mainClassName", "--on-redeploy=$doOnChange"]
-}
 
 shadowJar {
     classifier = null

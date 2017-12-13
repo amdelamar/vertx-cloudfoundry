@@ -1,35 +1,31 @@
 # Vert.x Starter on Cloud Foundry
 
-A simple Java webapp using Eclipse Vert.x 3.5.0 (http://vertx.io) on Cloud Foundry
+A simple Java webapp using [Eclipse Vert.x](http://vertx.io) on [Cloud Foundry](https://www.cloudfoundry.org/)
 
 ## Prerequisites
 
-* [JDK 1.8](https://www.java.com/en/download/faq/develop.xml)
+* [Java 1.8](https://www.java.com/download/)
 * [CloudFoundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
-* [Eclipse](https://eclipse.org/downloads/) or [Spring Tools Suite](https://spring.io/tools) (Optional)
+* A Cloud service provider, such as [IBM Cloud](https://www.ibm.com/cloud/)
 
-## Run Manually
+## Download and Build
 
 1. Download code `git clone https://github.com/amdelamar/vertx-cf`
 1. `cd vertx-cf`
 1. Run build `./gradlew clean build`
-1. Start server `java -jar build/libs/vertx-cf-0.1.0.jar`
-1. Visit [https://localhost:8443/](https://localhost:8443/) to see the app running.
+1. Test app `java -jar build/libs/vertx-cf-0.1.0.jar`
+1. Visit [http://localhost:8080/](http://localhost:8080/) to see the app running.
 
-## Run with Redeploy
+## Deploy to Cloud Foundry
 
-App can be run in redeploy mode, so any changes to files are recompiled quickly. Which is useful for development.
-
-1. Run redeploy `./gradlew run`
-1. Visit [https://localhost:8443/](https://localhost:8443/) to see the app running.
-
-This last command launches the application and redeploys as soon as you change something in `src/`.
-
-## Run in Cloud Foundry
-
-1. Run build `./gradlew clean build`
 1. Deploy `cf push -f manifest.yml myapp`
-1. Run `cf apps` to see the app running. Visit the url provided by your Cloud Foundry service.
+1. Run `cf apps` to see the app running. Visit the url provided.
+
+## Notes
+
+This demo runs [Vert.x 3.5.0](http://vertx.io) and is packed using the official [CloudFoundry java-buildpack](https://github.com/cloudfoundry/java-buildpack). The `manifest.yml` specifies memory to be 768MB because any lower and the java-buildpack throws an error that it can't allocate enough heap space.
+
+The environment variable `PORT` is normally provided by your CloudFoundry service, and therefore can change when being deployed. Otherwise the default port is `8080`.
 
 ## License
 
