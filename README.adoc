@@ -19,7 +19,7 @@ This demo also uses Gradle+shadowJar plugin to build the application and all itâ
 == Build fat jar
 
 1. Run build `./gradlew clean build`
-1. Test app `java -jar build/libs/vertx-cf-0.1.0-all.jar`
+1. Test app `java -jar build/libs/vertx-cloudfoundry-0.1.0-all.jar`
 1. Visit link:http://localhost:8080/[http://localhost:8080/] to see the app running.
 
 == Deploy to Cloud Foundry

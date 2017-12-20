@@ -1,5 +1,5 @@
 applications:
-- path: ./build/libs/vertx-cf-0.1.0-all.jar
+- path: ./build/libs/vertx-cloudfoundry-0.1.0-all.jar
   memory: 768M
   instances: 1
   name: my-vertx-app
